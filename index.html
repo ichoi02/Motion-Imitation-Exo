@@ -131,7 +131,7 @@
     "url": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE",
     "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
     "keywords": ["Musculoskeletal simulation", "reinforcement learning", "motion imitation", "exoskeleton control", "impaired gait"],
-    "abstract": "Designing generalizable control policies for lower-limb exoskeletons remains fundamentally constrained by exhaustive data collection or iterative optimization procedures, which limit accessibility to clinical populations. To address this challenge, we introduce a device-agnostic framework that combines physiologically plausible musculoskeletal simulation with reinforcement learning to enable scalable personalized exoskeleton assistance for both able-bodied and clinical populations. Our control policies not only generate physiologically plausible locomotion dynamics but also capture clinically observed compensatory strategies under targeted muscular deficits, providing a unified computational model of both healthy and pathological gait. Without task-specific tuning, the resulting exoskeleton control policies produce assistive torque profiles at the hip and ankle that align with state-of-the-art profiles validated in human experiments, while consistently reducing metabolic cost across walking speeds. For simulated impaired-gait models, the learned control policies yield asymmetric, deficit-specific exoskeleton assistance that improves both energetic efficiency and bilateral kinematic symmetry without explicit prescription of the target gait pattern. These results demonstrate that physiologically plausible musculoskeletal simulation via reinforcement learning can serve as a scalable foundation for personalized exoskeleton control across both able-bodied and clinical populations, eliminating the need for extensive physical trials.",
+    "abstract": "Designing generalizable control policies for lower-limb exoskeletons remains fundamentally constrained by exhaustive data collection or iterative optimization procedures, which limit accessibility to clinical populations. To address this challenge, we introduce a device-agnostic framework that combines physiologically plausible musculoskeletal simulation with reinforcement learning to enable scalable personalized exoskeleton assistance for both able-bodied and clinical populations. Our control policies not only generate physiologically plausible locomotion dynamics but also capture clinically observed compensatory strategies under targeted muscular deficits, providing a unified computational model of both healthy and pathological gait. Without task-specific tuning, the resulting exoskeleton control policies produce assistive torque profiles at the hip and ankle that align with state-of-the-art profiles validated in human experiments, while consistently reducing metabolic cost across walking speeds inside simulation. For simulated impaired-gait models, the learned control policies yield asymmetric, deficit-specific exoskeleton assistance that improves both energetic efficiency and bilateral kinematic symmetry without explicit prescription of the target gait pattern. These results demonstrate that physiologically plausible musculoskeletal simulation via reinforcement learning can serve as a scalable foundation for personalized exoskeleton control across both able-bodied and clinical populations, eliminating the need for extensive physical trials.",
     "citation": "BIBTEX_CITATION_HERE",
     "isAccessibleForFree": true,
     "license": "https://creativecommons.org/licenses/by/4.0/",
@@ -227,26 +227,6 @@
       </div>
     </section>
 
-    <section class="hero teaser">
-      <div class="container is-max-desktop">
-        <div class="hero-body">
-          <h2 class="title has-text-centered">Trained Controllers for Healthy Populations</h2>
-          <div class="columns is-centered">
-            <div class="column">
-              <video id="video_left" autoplay controls muted loop width="100%" preload="metadata">
-                <source src="static/videos/hip_exo.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="column">
-              <video id="video_right" autoplay controls muted loop width="100%" preload="metadata">
-                <source src="static/videos/ankle_exo.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-        
     <section class="section hero is-light">
       <div class="container is-max-desktop">
         <div class="columns is-centered has-text-centered">
@@ -265,23 +245,24 @@
     <section class="hero is-small">
       <div class="hero-body">
         <div class="container is-max-desktop has-text-centered">
-          <h2 class="title">fig1</h2>
-          <img src="static/images/Figure1.png" alt="First research result visualization" loading="lazy"/>
-          <h2 class="subtitle has-text-centered" style="margin-top: 15px;">
-            Overview of the musculoskeletal simulation and learning framework. (a) The policy observes future reference kinematics and outputs muscle activations to imitate able-bodied human locomotion. (b) Fine-tuning phase for the human-exoskeleton system. The action space is extended to include assistive torque motors alongside muscle activations to simulate exoskeleton assistance. (c) Fine-tuning phase for the impaired gait policy. An activation mask reduces the maximum excitation of targeted muscles to generate compensatory impaired gait patterns. Both conditions can be applied simultaneously to generate impaired-gait-specific exoskeleton assistance.
+          <h2 class="title has-text-centered">Method Overview</h2>
+          <img src="static/images/Figure1.png" alt="Musculoskeletal simulation and learning framework" loading="lazy"/>
+          <h2 class="subtitle has-text-centered has-text-justified" style="margin-top: 15px; font-size: 1rem;">
+            Overview of the musculoskeletal simulation and learning framework. (a) From an open-source biomechanics dataset, the policy observes future reference kinematics and outputs muscle activations to imitate able-bodied human locomotion. (b) Fine-tuning phase for the human-exoskeleton system. The action space is extended to include assistive torque motors alongside muscle activations to simulate exoskeleton assistance. (c) Fine-tuning phase for the impaired gait policy. An activation mask reduces the maximum excitation of targeted muscles to generate compensatory impaired gait patterns. Both conditions can be applied simultaneously to generate impaired-gait-specific exoskeleton assistance.
           </h2>
         </div>
       </div>
     </section>
 
-    <section class="hero teaser">
+    <section class="hero teaser is-light">
       <div class="container is-max-desktop">
         <div class="hero-body">
-          <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
+          <h2 class="title has-text-centered">Physiologically Plausible Motion Imitation</h2>
+          <video poster="" id="tree" autoplay controls muted loop width="100%" preload="metadata">
             <source src="static/videos/tracking.mp4" type="video/mp4">
           </video>
-          <h2 class="subtitle has-text-centered">
-            tracking
+          <h2 class="subtitle has-text-centered has-text-justified" style="margin-top: 15px; font-size: 1.1rem;">
+            The simulated muscle-driven agent achieved high-fidelity kinematic and kinetic tracking performance relative to the ground-truth data. The base policy successfully reproduces physiologically plausible human locomotion across different walking and running speeds.
           </h2>
         </div>
       </div>
@@ -290,12 +271,35 @@
     <section class="hero teaser">
       <div class="container is-max-desktop">
         <div class="hero-body">
-          <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
+          <h2 class="title has-text-centered">Trained Controllers for Healthy Populations</h2>
+          <div class="columns is-centered">
+            <div class="column">
+              <video id="video_left" autoplay controls muted loop width="100%" preload="metadata">
+                <source src="static/videos/hip_exo.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="column">
+              <video id="video_right" autoplay controls muted loop width="100%" preload="metadata">
+                <source src="static/videos/ankle_exo.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <h2 class="subtitle has-text-centered has-text-justified" style="margin-top: 15px; font-size: 1.1rem;">
+            The resulting exoskeleton control policies produce assistive torque profiles at the hip and ankle that align with state-of-the-art profiles validated in human experiments, while consistently reducing metabolic cost across walking speeds.
+          </h2>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero teaser is-light">
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+          <h2 class="title has-text-centered">Simulated Impaired Gait Generation</h2>
+          <video poster="" id="tree" autoplay controls muted loop width="100%" preload="metadata">
             <source src="static/videos/patients.mp4" type="video/mp4">
           </video>
-          <h2 class="subtitle has-text-centered">
-            tracking
-          </h2>
+          <h2 class="subtitle has-text-centered has-text-justified" style="margin-top: 15px; font-size: 1.1rem;">
+            Targeted muscle groups were artificially weakened to simulate impaired gait.
         </div>
       </div>
     </section>
@@ -303,7 +307,7 @@
     <section class="hero teaser">
       <div class="container is-max-desktop">
         <div class="hero-body">
-          <h2 class="title has-text-centered">Trained Controllers for Impaired Populations</h2>
+          <h2 class="title has-text-centered">Impaired-Gait-Specific Exoskeleton Assistance</h2>
           <div class="columns is-centered">
             <div class="column">
               <video id="video_left" autoplay controls muted loop width="100%" preload="metadata">
@@ -316,6 +320,9 @@
               </video>
             </div>
           </div>
+          <h2 class="subtitle has-text-centered has-text-justified" style="margin-top: 15px; font-size: 1.1rem;">
+             For simulated impaired-gait models, the learned control policies yield asymmetric, deficit-specific exoskeleton assistance that improves both energegy expenditure and bilateral kinematic symmetry without explicit prescription of the target gait pattern.
+          </h2>
         </div>
       </div>
     </section>
